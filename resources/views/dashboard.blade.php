@@ -10,6 +10,10 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     @if ($user->role === 'Administrator')
+                    <form action="{{ route('dashboard') }}" method="GET">
+                        <input type="text" name="company_search" class="text-black mr-5" placeholder="Search Companies" value="{{ request('company_search') }}">
+                        <button class="px-3 py-3 bg-gray-700" type="submit">Search</button>
+                    </form>
                         <div class="container mx-auto p-5">
                             <h1 class="text-2xl font-bold mb-4">Companies</h1>
                             <table class="min-w-full bg-black shadow-md rounded-lg overflow-hidden">
@@ -40,8 +44,16 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{ $companies->appends($company_search)->links() }}
+
 
                             <h1 class="text-2xl font-bold mt-8 mb-4">Employees</h1>
+
+                            <form action="{{ route('dashboard') }}" method="GET">
+                                <input type="text" name="employee_search" class="text-black mr-5" placeholder="Search Employees" value="{{ request('employee_search') }}">
+                                <button class="px-3 py-3 bg-gray-700" type="submit">Search</button>
+                            </form>
+
                             <table class="min-w-full bg-black shadow-md rounded-lg overflow-hidden">
                                 <thead>
                                     <tr class="bg-gray-800 text-white">
@@ -72,6 +84,7 @@
                                     @endforeach
                                 </tbody>
                             </table>
+                            {{ $employees->appends($employee_search)->links() }}
                         </div>
                         @else
                         {{ __("You're logged in!") }}
