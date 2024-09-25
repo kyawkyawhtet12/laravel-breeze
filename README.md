@@ -1,6 +1,4 @@
-
 ---
-
 ## Table of Contents
 
 - [Requirements](#requirements)
@@ -16,9 +14,7 @@
   - [Running Tests](#running-tests)
 - [API Endpoints](#api-endpoints)
   - [Available API Routes](#available-api-routes)
-
 ---
-
 ## Requirements
 
 - PHP 8.x
@@ -30,7 +26,6 @@
 ---
 
 ## Installation
-
 
 ### Clone the Repository
 
@@ -45,10 +40,10 @@ Install Node.js dependencies for the frontend:
 
 npm install
 Environment Configuration
+
 Copy .env.example to .env:
-
-
 cp .env.example .env
+
 Update your .env file with your local database configuration:
 
 DB_CONNECTION=mysql
@@ -57,32 +52,25 @@ DB_PORT=3306
 DB_DATABASE=your_database
 DB_USERNAME=your_username
 DB_PASSWORD=your_password
-Generate the application key:
 
+Generate the application key:
 php artisan key:generate
+
 Run Migrations and Seeders
 Run database migrations and seed the database:
-
 php artisan migrate --seed
-This will create the necessary tables in your database and seed some initial data.
 
 Create Storage Link
-To make file uploads publicly accessible, create a symbolic link from the public/storage directory to storage/app/public:
-
 php artisan storage:link
+
+
 Running the Project
 Serve the Project Locally
-You can serve the Laravel application locally using the built-in PHP server:
-
-
 php artisan serve
-This will start the project at http://127.0.0.1:8000 by default.
-
-If you need to watch and compile frontend assets (like CSS or JavaScript), you can run:
 
 npm run dev
-Running Tests
 
+Running Tests
 php artisan test
 
 
@@ -145,3 +133,4 @@ Description: Deletes an employee by ID.
 URL: /api/companies
 Method: POST
 Description: Add a new company by providing name, email, and website.
+```
